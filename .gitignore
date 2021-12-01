@@ -36,4 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-appplication-google.yml
+### oauth 정보 삭제 ###
+application-oauth.yml
