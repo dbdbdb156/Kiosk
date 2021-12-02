@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Oauth2 테스트</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1> Oauth2 test </h1>
+
+<div th:with="user=${userName}">
+    <div th:if="${#strings.isEmpty(user)}" >
+        <p>로그인 아직 하지 않으셨네요</p>
+        <a href="/login" class="btn btn-success active" role="button">Login</a>
+    </div>
+    <div th:unless="${#strings.isEmpty(user)}">
+        <p th:text="${userName}" > 반갑습니다 </p>
+        <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+    </div>
+</div>
+
+
+
+</body>
+</html>
