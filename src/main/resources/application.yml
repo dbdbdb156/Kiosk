@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: google
+    include: oauth
 
   datasource:
     jpa:
