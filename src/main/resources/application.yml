@@ -2,6 +2,12 @@ spring:
   profiles:
     include: oauth
 
+  redis:
+    host: localhost # redis 설정
+    port: 6379
+
+
+
   datasource:
     jpa:
       hibernate:
