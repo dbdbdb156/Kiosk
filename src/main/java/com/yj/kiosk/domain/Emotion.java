@@ -1,15 +1,14 @@
 package com.yj.kiosk.domain;
 
 import com.yj.kiosk.domain.item.Item;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 
 // Redis DB 사용 예정
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RedisHash("emotion")
 public class Emotion {
 

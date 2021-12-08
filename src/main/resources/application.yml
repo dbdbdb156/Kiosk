@@ -6,13 +6,19 @@ spring:
     host: localhost # redis 설정
     port: 6379
 
-
-
   datasource:
-    jpa:
-      hibernate:
-        ddl-auto: create
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/schema?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: root
+    password: 1234
+
+
+  jpa:
     properties:
       hibernate:
-        show_sql: true
         format_sql: true
+
+    hibernate:
+      ddl-auto: create
+
+    show-sql: true
