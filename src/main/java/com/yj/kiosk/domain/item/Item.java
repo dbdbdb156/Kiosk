@@ -24,8 +24,9 @@ public abstract class Item {
 
     private int price;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="emotion_id")
-    private Emotion emotion;
+    // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // @JoinColumn(name="emotion_id")
+    // private Emotion emotion;
+    // 관계형 데이터 베이스와 NoSql 을 함께 테이블 설계하지 말자
 
 }

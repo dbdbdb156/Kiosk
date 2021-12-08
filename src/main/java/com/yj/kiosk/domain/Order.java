@@ -11,7 +11,7 @@ import java.util.List;
 
 // 쿼리 예약어 order by 랑 문제가 생길수 있음.
 @Entity
-@Table(name = "orders")
+@Table(name = "Orders")
 @Setter
 @Getter
 public class Order {
