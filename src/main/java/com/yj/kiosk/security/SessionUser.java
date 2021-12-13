@@ -1,6 +1,7 @@
 package com.yj.kiosk.security;
 
 import com.yj.kiosk.domain.Member;
+import com.yj.kiosk.domain.Role;
 import lombok.Getter;
 
 import java.io.Serializable;

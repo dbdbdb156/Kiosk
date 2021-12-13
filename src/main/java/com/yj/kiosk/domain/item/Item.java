@@ -29,4 +29,12 @@ public abstract class Item {
     // private Emotion emotion;
     // 관계형 데이터 베이스와 NoSql 을 함께 테이블 설계하지 말자
 
+    public void removeQuantity(int quantity){
+        int restStock = this.stock - quantity;
+        if(restStock < 0){
+            throw new RuntimeException("need more stock");
+        }
+        this.stock = restStock;
+    }
+
 }

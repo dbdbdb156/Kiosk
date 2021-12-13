@@ -11,6 +11,5 @@ import javax.persistence.Entity;
 @DiscriminatorValue("TENT")
 @Getter @Setter
 public class Tent extends Item{
-    private String name;
     private String type;
 }
