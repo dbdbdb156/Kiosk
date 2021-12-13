@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>주문</title>
+</head>
+<body>
+<div class="container">
+
+    <h2>상품 주문합시다</h2>
+    <form role="form" action="/order" method="post">
+    <div class="form-group">
+        <label for="item">상품명</label>
+        <select name="itemId" id="item" class="form-control">
+            <option value="">상품선택</option>
+            <option th:each="item : ${items}"
+                    th:value="${item.id}"
+                    th:text="${item.name}" />
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="count">주문수량</label>
+        <input type="number" name="count" class="form-control" id="count"
+               placeholder="주문 수량을 입력하세요">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

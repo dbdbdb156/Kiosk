@@ -19,6 +19,6 @@ spring:
         format_sql: true
 
     hibernate:
-      ddl-auto: create
+      ddl-auto:
 
     show-sql: true

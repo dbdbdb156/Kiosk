@@ -46,4 +46,15 @@ public class Order {
         orderItem.setOrder(this);
     }
 
+    public static Order createOrder(Member member,OrderItem... orderItems){
+        Order order = new Order();
+        order.setMember(member);
+        for(OrderItem orderItem : orderItems){
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
 }

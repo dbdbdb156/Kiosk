@@ -30,7 +30,15 @@ public class OrderItem {
     @JoinColumn(name = "item_id")
     private Item item;
 
+    public static OrderItem createOrderItem(Item item, int sumPrice,int count){
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setSumPrice(sumPrice);
+        orderItem.setCount(count);
 
+        item.removeQuantity(count);
+        return orderItem;
+    }
 
 
 

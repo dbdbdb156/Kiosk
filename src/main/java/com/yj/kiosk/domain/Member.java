@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Member extends BaseTimeEntity{
+public class Member{
     @Id
     @Column(name="member_id")
     @GeneratedValue
