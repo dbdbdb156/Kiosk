@@ -24,10 +24,6 @@ public class MemberController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        SessionUser user = (SessionUser) httpSession.getAttribute("member");
-        if(user != null){
-            model.addAttribute("userName",user.getName());
-        }
         return "login";
     }
 
