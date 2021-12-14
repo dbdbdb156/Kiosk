@@ -1,11 +1,10 @@
 package com.yj.kiosk.service;
 
-import com.yj.kiosk.domain.Member;
-import com.yj.kiosk.domain.Order;
-import com.yj.kiosk.domain.OrderItem;
+import com.yj.kiosk.domain.*;
 import com.yj.kiosk.domain.item.Item;
 import com.yj.kiosk.repository.ItemRepository;
 import com.yj.kiosk.repository.OrderRepository;
+import com.yj.kiosk.repository.OrderRepositorySupport;
 import com.yj.kiosk.security.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +21,7 @@ public class OrderService {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
     private final ItemRepository itemRepository;
+    private final OrderRepositorySupport orderRepositorySupport;
 
     @Transactional
     public Long order(String email,Long itemId, int count){
@@ -40,4 +40,9 @@ public class OrderService {
         orderRepository.save(order);
         return order.getId();
     }
+
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepositorySupport.findAllByString(orderSearch);
+    }
+
 }

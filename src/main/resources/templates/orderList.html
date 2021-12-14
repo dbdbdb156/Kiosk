@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div>
+  <div>
+    <div>
+      <form th:object="${orderSearch}">
+        <div>
+          <input type="text" th:field="*{memberName}" placeholder="회원명"/>
+        </div>
+        <div>
+          <select th:field="*{orderStatus}">
+            <option value="">주문상태</option>
+            <option th:each=
+                            "status : ${T(com.yj.kiosk.domain.OrderStatus).values()}"
+                    th:value="${status}"
+                    th:text="${status}">option
+            </option>
+          </select>
+        </div>
+        <button type="submit">검색</button>
+      </form>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>회원명</th>
+        <th>대표상품 이름</th>
+        <th>대표상품 주문가격</th>
+        <th>대표상품 주문수량</th>
+        <th>상태</th>
+        <th>일시</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="item : ${orders}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.member.name}"></td>
+        <td th:text="${item.orderItems[0].item.name}"></td>
+        <td th:text="${item.orderItems[0].sumPrice}"></td>
+        <td th:text="${item.orderItems[0].count}"></td>
+        <td th:text="${item.status}"></td>
+        <td th:text="${item.orderDate}"></td>
+        <td>
+          <a th:if="${item.status.name() == 'ORDER'}" href="#"
+             th:href="'javascript:cancel('+${item.id}+')'"
+             >CANCEL</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="/" class="btn btn-success active" role="button">메뉴</a>
+</div>
+</body>
+</html>
