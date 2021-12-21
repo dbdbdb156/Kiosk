@@ -35,8 +35,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'junit:junit:4.13.1'
 
-	implementation 'com.querydsl:querydsl-jpa'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1';
+
 	//querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa'
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 

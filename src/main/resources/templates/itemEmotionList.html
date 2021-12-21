@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head/>
+<body>
+<div class="container">
+  <h2>상품 리스트와 좋아요 구현이 가능합니다</h2>
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>상품재고</th>
+        <th>좋아요 수</th>
+        <th>좋아요 선택</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.stock}"></td>
+        <td th:text="${item.count}"></td>
+        <td>
+          <span th:if="${item.choice}">좋아요 취소</span>
+          <span th:unless="${item.choice}">좋아요</span>
+        </td>
+        <td>
+          <a href="#" th:href="@{/items/{id} (id=${item.id})}"
+             role="button">좋아요 버튼</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="/" class="btn btn-success active" role="button">메뉴</a>
+</div> <!-- /container -->
+</body>
+</html>

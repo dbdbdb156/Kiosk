@@ -2,7 +2,6 @@ package com.yj.kiosk.controller;
 
 import com.yj.kiosk.domain.Order;
 import com.yj.kiosk.domain.OrderSearch;
-import com.yj.kiosk.domain.OrderStatus;
 import com.yj.kiosk.dto.ItemDTO;
 import com.yj.kiosk.security.SessionUser;
 import com.yj.kiosk.service.ItemService;
