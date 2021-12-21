@@ -6,10 +6,11 @@
 <body>
 <div>
   <div>
+    <h2>동적 쿼리를 통한 주문 검색</h2>
     <div>
       <form th:object="${orderSearch}">
         <div>
-          <input type="text" th:field="*{memberName}" placeholder="회원명"/>
+          <input type="text" th:field="*{memberName}" placeholder="회원명 기입"/>
         </div>
         <div>
           <select th:field="*{orderStatus}">
@@ -46,11 +47,6 @@
         <td th:text="${item.orderItems[0].count}"></td>
         <td th:text="${item.status}"></td>
         <td th:text="${item.orderDate}"></td>
-        <td>
-          <a th:if="${item.status.name() == 'ORDER'}" href="#"
-             th:href="'javascript:cancel('+${item.id}+')'"
-             >CANCEL</a>
-        </td>
       </tr>
       </tbody>
     </table>

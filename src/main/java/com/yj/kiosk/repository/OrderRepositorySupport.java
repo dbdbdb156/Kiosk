@@ -1,7 +1,6 @@
 package com.yj.kiosk.repository;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.yj.kiosk.domain.*;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;

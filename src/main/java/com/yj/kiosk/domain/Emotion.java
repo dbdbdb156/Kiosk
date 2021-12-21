@@ -1,26 +1,23 @@
 package com.yj.kiosk.domain;
 
-import com.yj.kiosk.domain.item.Item;
 import lombok.*;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 // Redis DB 사용 예정
+//
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@RedisHash("emotion")
-public class Emotion {
+public class Emotion implements Serializable {
 
     @Id // Redis 의 Key 는 String으로
     private String id;
-    private String itemName;
-    private String userName;
+    private String count;
 
     @Builder
-    public Emotion(String id, String itemName, String userName) {
+    public Emotion(String id, String count) {
         this.id = id;
-        this.itemName = itemName;
-        this.userName = userName;
+        this.count = count;
     }
 }

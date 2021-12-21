@@ -1,6 +1,5 @@
 package com.yj.kiosk.repository;
 
-import com.yj.kiosk.domain.Order;
 import com.yj.kiosk.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,6 +23,7 @@ public class ItemRepository {
     public List<Item> findAll(){
         return em.createQuery("select i from Item i",Item.class).getResultList();
     }
+
 
 
 }
