@@ -16,11 +16,19 @@
     <div th:unless="${#strings.isEmpty(user)}">
         <span th:text="${userName}" ></span> 님 반갑습니다
         <br></br>
-
-        <a href="/order" class="btn btn-info active" role="button">주문</a>
-        <a href="/orders" class="btn btn-info active" role="button">주문리스트</a>
-        <a href="/items" class="btn btn-info active" role="button">상품리스트</a>
-        <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+        <div>
+            <a href="/order" class="btn btn-info active" role="button">주문</a>
+            <span th:if="${role.equals('ADMIN')}">
+                <a href="/orders" class="btn btn-info active" role="button">주문내역</a>
+                <a href="/members" class="btn btn-info active" role="button">회원명부</a>
+            </span>
+        </div>
+        <div>
+            <a href="/items" class="btn btn-info active" role="button">상품리스트</a>
+        </div>
+        <div>
+            <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+        </div>
     </div>
 </div>
 
