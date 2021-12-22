@@ -3,9 +3,9 @@ package com.yj.kiosk.service;
 import com.yj.kiosk.domain.*;
 import com.yj.kiosk.domain.item.Item;
 import com.yj.kiosk.repository.ItemRepository;
+import com.yj.kiosk.repository.MemberRepository;
 import com.yj.kiosk.repository.OrderRepository;
 import com.yj.kiosk.repository.OrderRepositorySupport;
-import com.yj.kiosk.security.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class OrderService {
 
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
     private final OrderRepository orderRepository;
     private final ItemRepository itemRepository;
     private final OrderRepositorySupport orderRepositorySupport;
@@ -26,7 +26,7 @@ public class OrderService {
     public Long order(String email,Long itemId, int count){
 
         // 엔티티 조회
-        Member member = userRepository.findByEmail(email).get();
+        Member member = memberRepository.findByEmail(email).get();
         Item item = itemRepository.findOne(itemId);
 
         // 주문상품 생성

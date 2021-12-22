@@ -1,6 +1,7 @@
 package com.yj.kiosk.security;
 
 import com.yj.kiosk.domain.Member;
+import com.yj.kiosk.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -17,7 +18,7 @@ import java.util.Collections;
 @Service
 @RequiredArgsConstructor
 public class CustomOAuth2MemberService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
     private final HttpSession httpSession;
 
     @Override
@@ -37,10 +38,10 @@ public class CustomOAuth2MemberService implements OAuth2UserService<OAuth2UserRe
     }
 
     private Member saveOrUpdate(OAuthAttributes attributes) {
-        Member member = userRepository.findByEmail(attributes.getEmail())
+        Member member = memberRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());
-        return userRepository.save(member);
+        return memberRepository.save(member);
     }
 
 
